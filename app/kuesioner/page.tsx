@@ -4,59 +4,18 @@ import Button from "../components/Button/page";
 import Image from "next/image";
 
 export default function Kuesioner() {
-  const [sliderValue, setSliderValue] = useState(0);
-  const [reversedSliderValue, setReversedSliderValue] = useState(0);
-  const [checkboxValue, setCheckboxValue] = useState(false);
+  const [radioValue, setRadioValue] = useState<String>();
 
-  function handleSliderChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const newValue = Number(e.target.value);
-    // console.log(newValue);
-    setSliderValue(newValue);
-    setReversedSliderValue(0);
-    setCheckboxValue(false);
-  }
-
-  function handleReversedSliderChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const newValueRev = Number(e.target.value);
-    // console.log(newValueRev);
-    setReversedSliderValue(newValueRev);
-    setSliderValue(0);
-    setCheckboxValue(false);
-  }
-
-  function handleCheckboxChange() {
-    console.log(!checkboxValue);
-    setCheckboxValue(!checkboxValue);
-    setSliderValue(0);
-    setReversedSliderValue(0);
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    // event.preventDefault();
+    setRadioValue(event.target.value);
+    console.log(radioValue);
   }
 
   const handleSubmited = (event: any) => {
     event.preventDefault();
-    let sliderValueToLog = sliderValue;
-    let reversedSliderValueToLog = reversedSliderValue;
 
-    if (sliderValue === 3) {
-      sliderValueToLog = 0.3333;
-    } else if (sliderValue === 6) {
-      sliderValueToLog = 0.2;
-    } else if (sliderValue === 9) {
-      sliderValueToLog = 0.1428;
-    } else if (sliderValue === 12) {
-      sliderValueToLog = 0.1111;
-    }
-
-    if (reversedSliderValue === 6) {
-      reversedSliderValueToLog = 5;
-    } else if (reversedSliderValue === 9) {
-      reversedSliderValueToLog = 7;
-    } else if (reversedSliderValue === 12) {
-      reversedSliderValueToLog = 9;
-    }
-
-    console.log("Slider value: ", sliderValueToLog);
-    console.log("Reversed slider value: ", reversedSliderValueToLog);
-    console.log("Checkbox value: ", checkboxValue);
+    console.log("Radio value: ", radioValue);
   };
   return (
     <>
@@ -80,15 +39,15 @@ export default function Kuesioner() {
           placeholder="blur"
           blurDataURL={"/tutor.png"}
         />
-        <div className="mt-5 text-xs text-primary">
+        <div className="mt-5 text-primary">
           <p>NB :</p>
-          <p>1 : equally importance</p>
+          <p>= : equally importance</p>
           <p>3 & 3&apos; : moderately importance</p>
           <p>5 & 5&apos; : strongly importance</p>
           <p>7 & 7&apos; : very strongly importance</p>
           <p>9 & 9&apos; : extremely importance</p>
         </div>
-        <div className="grid grid-cols-9 justify-items-center	 text-xs  sm:text-sm mt-36">
+        {/* <div className="grid grid-cols-9 justify-items-center	 text-xs  sm:text-sm mt-36">
           <div>9</div>
           <div>7</div>
           <div>5</div>
@@ -98,14 +57,27 @@ export default function Kuesioner() {
           <div>5&apos;</div>
           <div>7&apos;</div>
           <div>9&apos;</div>
-        </div>
+        </div> */}
 
-        <form className="mt-2 grid grid-cols-9 justify-items-center mb-36">
+        {/* Contoh Kuesioner */}
+        <div className="mt-5">
+          Contoh :<p> Factor A vs Factor B. Mana yang lebih penting?</p>
+          <div className="flex justify-between text-xs mt-3 opacity-50">
+            <p>Factor A</p>
+            <p>=</p>
+            <p>Factor B</p>
+          </div>
+        </div>
+        <form
+          onSubmit={handleSubmited}
+          className="mt-2 grid grid-cols-9 justify-items-center"
+        >
           <input
             type="radio"
             name="radio-2"
-            value="9"
+            value="Factor A is Extremely Importance rather than Factor B"
             onClick={(e) => console.log((e.target as HTMLInputElement).value)}
+            onChange={handleChange}
             className="radio radio-success radio-xs sm:radio-sm"
             defaultChecked
           />
@@ -113,67 +85,82 @@ export default function Kuesioner() {
           <input
             type="radio"
             onClick={(e) => console.log((e.target as HTMLInputElement).value)}
+            onChange={handleChange}
             name="radio-2"
-            value="7"
+            value="Factor A is Very Strongly Importance rather than Factor B"
             className="radio radio-success radio-xs sm:radio-sm"
           />
 
           <input
             type="radio"
             onClick={(e) => console.log((e.target as HTMLInputElement).value)}
+            onChange={handleChange}
             name="radio-2"
-            value="5"
+            value="Factor A is Strongly Importance rather than Factor B"
             className="radio radio-success radio-xs sm:radio-sm"
           />
 
           <input
             type="radio"
             onClick={(e) => console.log((e.target as HTMLInputElement).value)}
+            onChange={handleChange}
             name="radio-2"
-            value="3"
+            value="Factor A is Moderately Importance rather than Factor B"
             className="radio radio-success radio-xs sm:radio-sm "
           />
 
           <input
             type="radio"
             onClick={(e) => console.log((e.target as HTMLInputElement).value)}
+            onChange={handleChange}
             name="radio-2"
-            value="1"
+            value="Factor A & Factor B is Equally Important"
             className="radio radio-success radio-xs sm:radio-sm"
           />
 
           <input
             type="radio"
             onClick={(e) => console.log((e.target as HTMLInputElement).value)}
+            onChange={handleChange}
             name="radio-2"
-            value="0.3333"
+            value="Factor B is Moderately Importance rather than Factor A"
             className="radio radio-success radio-xs sm:radio-sm"
           />
 
           <input
             type="radio"
             onClick={(e) => console.log((e.target as HTMLInputElement).value)}
+            onChange={handleChange}
             name="radio-2"
-            value="0.2"
+            value="Factor B is Strongly Importance rather than Factor A"
             className="radio radio-success radio-xs sm:radio-sm "
           />
 
           <input
             type="radio"
             onClick={(e) => console.log((e.target as HTMLInputElement).value)}
+            onChange={handleChange}
             name="radio-2"
-            value="0.1428"
+            value="Factor B is Very Strongly Importance rather than Factor A"
             className="radio radio-success radio-xs sm:radio-sm"
           />
 
           <input
             type="radio"
             onClick={(e) => console.log((e.target as HTMLInputElement).value)}
+            onChange={handleChange}
             name="radio-2"
-            value="0.1111"
+            value="Factor B is Extremely Importance rather than Factor A"
             className="radio radio-success radio-xs sm:radio-sm"
           />
+
+          {/* <button type="submit">Submit</button> */}
         </form>
+        {radioValue && (
+          <p className="mt-5 w-auto ">
+            Answer : <span className="text-emerald-500">{radioValue}</span>
+          </p>
+        )}
         <div className="flex justify-between mt-5">
           <Button url="/" title="Kembali" />
           <Button url="/kuesioner" title="Selanjutnya" />
