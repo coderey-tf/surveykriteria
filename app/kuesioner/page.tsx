@@ -103,14 +103,14 @@ export default function Kuesioner() {
             type="radio"
             name="radio-2"
             value="9"
-            onClick={(e) => console.log(e.target.value)}
+            onClick={(e) => console.log(e)}
             className="radio radio-success radio-xs sm:radio-sm"
             defaultChecked
           />
 
           <input
             type="radio"
-            onClick={(e) => console.log(e.target.value)}
+            onClick={(e) => console.log((e.target as HTMLInputElement).value)}
             name="radio-2"
             value="7"
             className="radio radio-success radio-xs sm:radio-sm"
@@ -118,7 +118,7 @@ export default function Kuesioner() {
 
           <input
             type="radio"
-            onClick={(e) => console.log(e.target.value)}
+            onClick={(e) => console.log((e.target as HTMLInputElement).value)}
             name="radio-2"
             value="5"
             className="radio radio-success radio-xs sm:radio-sm"
@@ -126,7 +126,7 @@ export default function Kuesioner() {
 
           <input
             type="radio"
-            onClick={(e) => console.log(e.target.value)}
+            onClick={(e) => console.log((e.target as HTMLInputElement).value)}
             name="radio-2"
             value="3"
             className="radio radio-success radio-xs sm:radio-sm "
@@ -134,7 +134,7 @@ export default function Kuesioner() {
 
           <input
             type="radio"
-            onClick={(e) => console.log(e.target.value)}
+            onClick={(e) => console.log((e.target as HTMLInputElement).value)}
             name="radio-2"
             value="1"
             className="radio radio-success radio-xs sm:radio-sm"
@@ -142,7 +142,7 @@ export default function Kuesioner() {
 
           <input
             type="radio"
-            onClick={(e) => console.log(e.target.value)}
+            onClick={(e) => console.log((e.target as HTMLInputElement).value)}
             name="radio-2"
             value="0.3333"
             className="radio radio-success radio-xs sm:radio-sm"
@@ -150,7 +150,7 @@ export default function Kuesioner() {
 
           <input
             type="radio"
-            onClick={(e) => console.log(e.target.value)}
+            onClick={(e) => console.log((e.target as HTMLInputElement).value)}
             name="radio-2"
             value="0.2"
             className="radio radio-success radio-xs sm:radio-sm "
@@ -158,7 +158,7 @@ export default function Kuesioner() {
 
           <input
             type="radio"
-            onClick={(e) => console.log(e.target.value)}
+            onClick={(e) => console.log((e.target as HTMLInputElement).value)}
             name="radio-2"
             value="0.1428"
             className="radio radio-success radio-xs sm:radio-sm"
@@ -166,7 +166,7 @@ export default function Kuesioner() {
 
           <input
             type="radio"
-            onClick={(e) => console.log(e.target.value)}
+            onClick={(e) => console.log((e.target as HTMLInputElement).value)}
             name="radio-2"
             value="0.1111"
             className="radio radio-success radio-xs sm:radio-sm"
