@@ -22,3 +22,21 @@
     @apply text-sm font-semibold;
   }
 }
+
+@layer components {
+  .neumorphism-body {
+    border-radius: 20px;
+    background: linear-gradient(315deg, #473e4e, #554a5d);
+    box-shadow: -10px -10px 10px #433b4a, 10px 10px 10px #5b4f64;
+  }
+
+  .neumorphism-head {
+    border-radius: 20px;
+    background: linear-gradient(145deg, #33313f, #3d3a4b);
+    box-shadow: 10px 10px 10px #302e3c, -10px -10px 10px #423e51;
+  }
+  .radio-xxs {
+    height: 0.8rem /* 16px */;
+    width: 0.8rem /* 16px */;
+  }
+}

@@ -1,6 +1,9 @@
+import Link from "next/link";
+import Button from "./components/Button/page";
+
 export default function Home() {
   return (
-    <div className=" w-[60%] mx-auto my-5">
+    <div className="neumorphism-body p-3 px-4">
       {/* <div className=" w-[60%] mx-auto my-10"> */}
       <h4 className="text-center">
         Kuesioner Faktor Pengaruh Pemilihan Universitas Mahasiswa Indonesia
@@ -40,7 +43,12 @@ export default function Home() {
           membantu saya dalam mengumpulkan data yang diharapkan berguna bagi
           pengembangan pendidikan di Indonesia kedepan.
         </p>
-        <button className="btn btn-accent flex self-end">Selanjutnya</button>
+
+        <Button url="/kuesioner" title="Selanjutnya" />
+
+        {/* <Link href="/kuesioner">
+          <Button title="Selanjutnya" />
+        </Link> */}
       </div>
     </div>
   );

@@ -15,10 +15,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${poppins.className} container mx-auto`}>
+    <html lang="en" className=" bg-secondary">
+      <body className={`${poppins.className} container mx-auto text-primary`}>
         <Navbar />
-        {children}
+        <div className="mt-24 w-[90%] mx-auto mb-10   ">{children}</div>
       </body>
     </html>
   );
