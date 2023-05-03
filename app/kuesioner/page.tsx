@@ -77,6 +77,8 @@ export default function Kuesioner() {
           width={800}
           height={200}
           className="mx-auto mt-5"
+          placeholder="blur"
+          blurDataURL={"/tutor.png"}
         />
         <div className="mt-5 text-xs text-primary">
           <p>NB :</p>
@@ -103,7 +105,7 @@ export default function Kuesioner() {
             type="radio"
             name="radio-2"
             value="9"
-            onClick={(e) => console.log(e)}
+            onClick={(e) => console.log((e.target as HTMLInputElement).value)}
             className="radio radio-success radio-xs sm:radio-sm"
             defaultChecked
           />
