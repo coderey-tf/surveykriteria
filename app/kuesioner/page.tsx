@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Button from "../components/Button/page";
 import Image from "next/image";
+import Popup from "../components/popup";
 
 export default function Kuesioner() {
   const [radioValue, setRadioValue] = useState<String>();
@@ -29,7 +30,7 @@ export default function Kuesioner() {
         </div>
       </div>
       <div className="py-4 px-4 mt-5 neumorphism-body">
-        <h5 className=" text-sm">Penjelasan Skala Kuesioner </h5>
+        <h3 className="">Penjelasan Skala Kuesioner </h3>
         <Image
           src="/tutor.png"
           alt="petunjuk"
@@ -47,17 +48,6 @@ export default function Kuesioner() {
           <p>7 & 7&apos; : very strongly importance</p>
           <p>9 & 9&apos; : extremely importance</p>
         </div>
-        {/* <div className="grid grid-cols-9 justify-items-center	 text-xs  sm:text-sm mt-36">
-          <div>9</div>
-          <div>7</div>
-          <div>5</div>
-          <div>3</div>
-          <div>=</div>
-          <div>3&apos;</div>
-          <div>5&apos;</div>
-          <div>7&apos;</div>
-          <div>9&apos;</div>
-        </div> */}
 
         {/* Contoh Kuesioner */}
         <div className="mt-5">
@@ -161,11 +151,13 @@ export default function Kuesioner() {
             Answer : <span className="text-emerald-500">{radioValue}</span>
           </p>
         )}
+
         <div className="flex justify-between mt-5">
           <Button url="/" title="Kembali" />
           <Button url="/kuesioner" title="Selanjutnya" />
         </div>
       </div>
+      <Popup />
     </>
   );
 }
